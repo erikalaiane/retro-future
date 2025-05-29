@@ -1,12 +1,13 @@
-function aceitarCookies() {
-      document.cookie = "cookieAceito=true; max-age=" + 60*60*24*30;
-      document.getElementById("cookie-popup").classList.remove("show");
-      document.getElementById("backdrop").classList.remove("show");
-    }
+const popup = document.getElementById('cookie-popup');
+const backdrop = document.getElementById('backdrop');
+const acceptBtn = document.getElementById('accept-cookie');
 
-    window.onload = function () {
-      if (!document.cookie.includes("cookieAceito=true")) {
-        document.getElementById("cookie-popup").classList.add("show");
-        document.getElementById("backdrop").classList.add("show");
-      }
-    }
+window.onload = () => {
+  popup.classList.add('show');
+  backdrop.classList.add('show');
+};
+
+acceptBtn.addEventListener('click', () => {
+  popup.classList.remove('show');
+  backdrop.classList.remove('show');
+});
